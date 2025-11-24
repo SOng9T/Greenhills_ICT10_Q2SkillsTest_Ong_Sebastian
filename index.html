@@ -12,6 +12,7 @@
         .card { background:#f7f7f7; padding:1rem; border-radius:6px; box-shadow:0 1px 3px rgba(0,0,0,.08); }
         label, select { display:block; margin-bottom:.5rem; }
         #details p { margin:.25rem 0; }
+        .hidden { display: none !important; } 
     </style>
 </head>
 <body>
@@ -23,7 +24,7 @@
             <option value="">Select a club</option>
         </select>
 
-        <div id="details" style="margin-top:1rem; display:none;">
+        <div id="details" class="hidden" style="margin-top:1rem;">
             <h2 id="clubName"></h2>
             <p><strong>Description:</strong> <span id="clubDesc"></span></p>
             <p><strong>Meeting time:</strong> <span id="clubTime"></span></p>
