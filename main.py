@@ -17,25 +17,27 @@ for c in clubs:
     opt.textContent = c["name"]
     select.appendChild(opt)
 
-default_club = {"name": "", "description": "", "meeting_time": "", "location": "", "moderator": "", "members": ""}
-
-display_map = {'': 'none'} 
+display_data = {
+    "": {"name": "", "description": "", "meeting_time": "", "location": "", "moderator": "", "members": "", "display": "none"},
+    "chess": {**clubs_by_id["chess"], "display": "block"},
+    "math": {**clubs_by_id["math"], "display": "block"},
+    "science": {**clubs_by_id["science"], "display": "block"}
+}
 
 def show_club(e=None):
-    selection = str(select.value)  
-    club = clubs_by_id.get(selection, default_club)
+    selection = str(select.value)
+    club_data = display_data[selection]
 
-    document.getElementById("clubName").textContent = club["name"]
-    document.getElementById("clubDesc").textContent = club["description"]
-    document.getElementById("clubTime").textContent = club["meeting_time"]
-    document.getElementById("clubLocation").textContent = club["location"]
-    document.getElementById("clubModerator").textContent = club["moderator"]
-    document.getElementById("clubMembers").textContent = str(club["members"])
+    document.getElementById("clubName").textContent = club_data["name"]
+    document.getElementById("clubDesc").textContent = club_data["description"]
+    document.getElementById("clubTime").textContent = club_data["meeting_time"]
+    document.getElementById("clubLocation").textContent = club_data["location"]
+    document.getElementById("clubModerator").textContent = club_data["moderator"]
+    document.getElementById("clubMembers").textContent = str(club_data["members"])
 
-    details.style.display = display_map.get(selection, 'block')
+    details.style.display = club_data["display"]
 
 show_club_proxy = create_proxy(show_club)
 select.addEventListener("change", show_club_proxy)
-
 
 show_club()
