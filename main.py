@@ -1,5 +1,5 @@
 from pyscript import document
-
+#necessary club info for the final display of the outcome
 clubs = [
     {"id": "chess", "name": "Chess Club", "description": "A club for chess enthusiasts to play, learn, and compete in chess games.", "meeting_time": "Every Saturday at 3 PM", "location": "Room 101, Community Center", "moderator": "John Doe", "members": 25, "class": ""},
     {"id": "math", "name": "Math Club", "description": "A club for students interested in exploring mathematical concepts and problem-solving.", "meeting_time": "Every Wednesday at 4 PM", "location": "Room 202, Science Building", "moderator": "Jane Smith", "members": 30, "class": ""},
@@ -7,7 +7,7 @@ clubs = [
 ]
 
 clubs_by_id = {c["id"]: c for c in clubs}
-
+#data display for the final club display info with proper variables, intersects the html
 display_data = {
     "": {"name": "", "description": "", "meeting_time": "", "location": "", "moderator": "", "members": "", "class": "hidden"},
     **clubs_by_id
@@ -16,6 +16,7 @@ display_data = {
 select = document.getElementById("clubSelect")
 details = document.getElementById("details")
 
+#displays the builtin visibility of the option info
 for c in clubs:
     opt = document.createElement("option")
     opt.value = c["id"]
@@ -36,3 +37,4 @@ def show_club(e=None):
     details.className = club_data["class"]
 
 select.onchange = show_club
+
