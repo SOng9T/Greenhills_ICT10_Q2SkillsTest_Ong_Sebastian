@@ -36,8 +36,8 @@ def show_club(e=None):
 
     details.style.display = club_data["display"]
 
-show_club_proxy = create_proxy(show_club)
-select.addEventListener("change", show_club_proxy)
+
 
 show_club()
+
 
