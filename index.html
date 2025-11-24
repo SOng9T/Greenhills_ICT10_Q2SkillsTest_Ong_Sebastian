@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.7.3/core.css">
+    <script type="module" src="https://pyscript.net/releases/2025.7.3/core.js"></script>
+
+    <title>Clubs</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 2rem auto; padding: 1rem; }
+        .card { background:#f7f7f7; padding:1rem; border-radius:6px; box-shadow:0 1px 3px rgba(0,0,0,.08); }
+        label, select { display:block; margin-bottom:.5rem; }
+        #details p { margin:.25rem 0; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Choose a Club</h1>
+
+        <label for="clubSelect">Select club:</label>
+        <select id="clubSelect">
+            <option value="">Select a club</option>
+        </select>
+
+        <div id="details" style="margin-top:1rem; display:none;">
+            <h2 id="clubName"></h2>
+            <p><strong>Description:</strong> <span id="clubDesc"></span></p>
+            <p><strong>Meeting time:</strong> <span id="clubTime"></span></p>
+            <p><strong>Location:</strong> <span id="clubLocation"></span></p>
+            <p><strong>Club Moderator:</strong> <span id="clubModerator"></span></p>
+            <p><strong>Number of members:</strong> <span id="clubMembers"></span></p>
+        </div>
+    </div>
+
+    <py-script src="main.py"></py-script>
+</body>
+</html>
