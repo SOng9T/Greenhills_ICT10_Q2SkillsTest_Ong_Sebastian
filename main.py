@@ -1,5 +1,4 @@
-# ...existing code...
-from js import document
+from pyscript import document
 
 clubs = [
     {
@@ -31,12 +30,13 @@ clubs = [
     }
 ]
 
+
 clubs_by_id = {c["id"]: c for c in clubs}
 
 select = document.getElementById("clubSelect")
 details = document.getElementById("details")
 
-# populate dropdown
+
 for c in clubs:
     opt = document.createElement("option")
     opt.value = c["id"]
@@ -52,6 +52,9 @@ default_club = {
     "members": ""
 }
 
+
+display_map = {'': 'none'}
+
 def show_club(e=None):
     selection = select.value
     club = clubs_by_id.get(selection, default_club)
@@ -63,10 +66,9 @@ def show_club(e=None):
     document.getElementById("clubModerator").textContent = club["moderator"]
     document.getElementById("clubMembers").textContent = str(club["members"])
 
-    # show/hide without explicit conditionals
-    details.style.display = {'': 'none'}.get(selection, 'block')
+    
+    details.style.display = display_map.get(selection, 'block')
 
-# attach listener and set initial state
+
 select.addEventListener("change", show_club)
 show_club()
-# ...existing code...
