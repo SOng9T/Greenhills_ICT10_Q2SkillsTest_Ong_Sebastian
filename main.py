@@ -1,5 +1,4 @@
 from pyscript import document
-from pyodide import create_proxy
 
 clubs = [
     {"id": "chess", "name": "Chess Club", "description": "A club for chess enthusiasts to play, learn, and compete in chess games.", "meeting_time": "Every Saturday at 3 PM", "location": "Room 101, Community Center", "moderator": "John Doe", "members": 25},
@@ -41,3 +40,4 @@ show_club_proxy = create_proxy(show_club)
 select.addEventListener("change", show_club_proxy)
 
 show_club()
+
